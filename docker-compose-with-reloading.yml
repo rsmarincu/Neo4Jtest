@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+    app:
+        container_name: flask_app
+        volumes:
+            - "/d/Documents/bath/Fluxus/neotest:/app"
+    live-reloader:
+        image: apogiatzis/livereloading
+        container_name: livereloader
+        privileged: true
+        environment: 
+            - RELOAD_DELAY=1.5 
+            - RELOAD_CONTAINER=flask_app
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            - "/d/Documents/bath/Fluxus/neotest:/app"
